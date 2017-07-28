@@ -6,11 +6,11 @@ public class BlockBehaviour : MonoBehaviour {
 
     public BoxCollider trigger;
     public Rigidbody rigidBody;
-    public float timeInSeconds = 0.5f;
+    public float fallDownDelayInSeconds = 0.5f;
+    public float destroyCubeDelayInSeconds = 0.5f;
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -24,7 +24,9 @@ public class BlockBehaviour : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
 
-        StartCoroutine(FallDownAfterTime(timeInSeconds));
+        if(other.gameObject.tag == "Player")
+
+        StartCoroutine(FallDownAfterTime());
 
 
 
@@ -32,10 +34,15 @@ public class BlockBehaviour : MonoBehaviour {
     }
 
 
-    IEnumerator FallDownAfterTime(float time)
+    IEnumerator FallDownAfterTime()
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(fallDownDelayInSeconds);
 
         rigidBody.useGravity = true;
+
+        yield return new WaitForSeconds(destroyCubeDelayInSeconds);
+
+        Destroy(this.gameObject);
+
     }
 }
