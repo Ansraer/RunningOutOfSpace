@@ -8,6 +8,8 @@ public class Settings : MonoBehaviour {
     //The button names are used to save the settings
     public static string[] buttonNames = new string[6] { "Up", "Down", "Left", "Right", "Jump", "Item" };
 
+    public static int playerNumber = 2;
+
 
     // Use this for initialization
     void Start()
@@ -19,6 +21,7 @@ public class Settings : MonoBehaviour {
 
     public static void LoadSettings()
     {
+        //load controls
         int players = 4;
         for (int i = 1; i<=players; i++)
         {
@@ -26,9 +29,13 @@ public class Settings : MonoBehaviour {
             {
                 string query = "Player" + i.ToString() + "Button" + buttonNames[j];
                 //Deduct 1 from player since array starts at 0 but first player is Player1
-                controls[i - 1, j] = getKey(query, controls[i - 1, j]);
+                controls[i - 1, j] = getString(query, controls[i - 1, j]);
             }
         }
+
+        //load player number
+        if (PlayerPrefs.HasKey("PlayerNumber"))
+            playerNumber = PlayerPrefs.GetInt("PlayerNumber");
 
     }
 
@@ -44,10 +51,14 @@ public class Settings : MonoBehaviour {
                 PlayerPrefs.SetString(query, controls[i-1,j]);
             }
         }
+
+
+        PlayerPrefs.SetInt("PlayerNumber", playerNumber);
+
         PlayerPrefs.Save();
     }
 
-    public static string getKey(string key,string otherwise)
+    public static string getString(string key, string otherwise)
     {
         if (PlayerPrefs.HasKey(key))
         {
@@ -59,6 +70,7 @@ public class Settings : MonoBehaviour {
         }
 
     }
+
 
     public static void testSettings()
     {
