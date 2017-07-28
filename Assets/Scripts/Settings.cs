@@ -13,5 +13,13 @@ public class Settings : MonoBehaviour {
     public static string[,] controls = new string[4,6]  { { "W", "D", "S", "A", "SPACE", "E" } , {"", "", "", "", "", ""}, { "", "", "", "", "", "" }, { "", "", "", "", "", "" } };
         
 
+    public static void LoadSettings()
+    {
+        string playerOneButtoneDown = PlayerPrefs.GetString("PlayerOneButtonDown");
+    }
 
+    public static void WriteSettings()
+    {
+        PlayerPrefs.SetString("PlayerOneButtonDown", "S");
+    }
 }
