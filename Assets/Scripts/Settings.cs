@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Settings : MonoBehaviour {
 
-    public static string[,] controls = new string[4, 6] { { "W", "D", "S", "A", "SPACE", "E" }, { "", "", "", "", "", "" }, { "", "", "", "", "", "" }, { "", "", "", "", "", "" } };
+    public static string[,] controls = new string[4, 6] { { "w", "d", "s", "a", "space", "e" }, { "", "", "", "", "", "" }, { "", "", "", "", "", "" }, { "", "", "", "", "", "" } };
     //The button names are used to save the settings
     public static string[] buttonNames = new string[6] { "Up", "Down", "Left", "Right", "Jump", "Item" };
 
