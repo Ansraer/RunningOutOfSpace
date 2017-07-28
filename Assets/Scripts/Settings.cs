@@ -10,10 +10,8 @@ public class Settings : MonoBehaviour {
 
     }
 
-    public static string[] player1Controls = new string[6] {"W","D","S","A","SPACE","E"};
-
-
-
+    public static string[,] controls = new string[4,6]  { { "W", "D", "S", "A", "SPACE", "E" } , {"", "", "", "", "", ""}, { "", "", "", "", "", "" }, { "", "", "", "", "", "" } };
+        
 
 
 }
