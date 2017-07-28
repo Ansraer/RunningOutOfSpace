@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a7e5ca4e4ded38a459844122c3d43f8e
+timeCreated: 1501258984
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: McHandwriting
+  fontNames:
+  - McHandwriting
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
