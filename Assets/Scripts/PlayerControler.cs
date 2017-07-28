@@ -5,15 +5,8 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour {
 
     public int playerNumber;
-
-    private string buttonForward = "W";
-    private string buttonRight = "D";
-    private string buttonDown = "S";
-    private string buttonLeft= "A";
-
-
-
-
+  
+    
     // Use this for initialization
     void Start () {
 		
