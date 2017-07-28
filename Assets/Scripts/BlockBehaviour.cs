@@ -37,11 +37,8 @@ public class BlockBehaviour : MonoBehaviour {
     IEnumerator FallDownAfterTime()
     {
         yield return new WaitForSeconds(fallDownDelayInSeconds);
-
         rigidBody.useGravity = true;
-
-        yield return new WaitForSeconds(destroyCubeDelayInSeconds);
-
+        yield return new WaitForSeconds(destroyCubeDelayInSeconds/3 + Random.Range(0, destroyCubeDelayInSeconds*2));
         Destroy(this.gameObject);
 
     }
