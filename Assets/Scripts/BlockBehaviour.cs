@@ -5,7 +5,8 @@ using UnityEngine;
 public class BlockBehaviour : MonoBehaviour {
 
     public BoxCollider trigger;
-
+    public Rigidbody rigidBody;
+    public float timeInSeconds = 0.5f;
 
 
 	// Use this for initialization
@@ -17,4 +18,24 @@ public class BlockBehaviour : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
+    // Triggers are placed on the collider boxes
+    void OnTriggerEnter(Collider other)
+    {
+
+        StartCoroutine(FallDownAfterTime(timeInSeconds));
+
+
+
+
+    }
+
+
+    IEnumerator FallDownAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        rigidBody.useGravity = true;
+    }
 }
