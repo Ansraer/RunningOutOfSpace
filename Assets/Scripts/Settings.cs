@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class Settings : MonoBehaviour {
 
-    public static string[,] controls;
-    public static string[] buttonNames;
+    public static string[,] controls = new string[4, 6] { { "W", "D", "S", "A", "SPACE", "E" }, { "", "", "", "", "", "" }, { "", "", "", "", "", "" }, { "", "", "", "", "", "" } };
+    //The button names are used to save the settings
+    public static string[] buttonNames = new string[6] { "Up", "Down", "Left", "Right", "Jump", "Item" };
 
 
     // Use this for initialization
     void Start()
     {
-        controls = new string[4, 6] { { "W", "D", "S", "A", "SPACE", "E" }, { "", "", "", "", "", "" }, { "", "", "", "", "", "" }, { "", "", "", "", "", "" } };
-
-        //The button names are used to save the settings
-        buttonNames = new string[6] { "Up", "Down", "Left", "Right", "Jump", "Item" };
+        
     }
 
     //naming: "Player" + number(e.g. 1) + "Button" + Button ("Up", "Down", "Left", "Right", "Jump", "Item")
@@ -24,7 +22,7 @@ public class Settings : MonoBehaviour {
         int players = 4;
         for (int i = 1; i<=players; i++)
         {
-            for (int j = 0; j<=buttonNames.Length; j++)
+            for (int j = 0; j<buttonNames.Length; j++)
             {
                 string query = "Player" + i.ToString() + "Button" + buttonNames[j];
                 //Deduct 1 from player since array starts at 0 but first player is Player1
@@ -39,7 +37,7 @@ public class Settings : MonoBehaviour {
         int players = 4;
         for (int i = 1; i <= players; i++)
         {
-            for (int j = 0; j <= buttonNames.Length; j++)
+            for (int j = 0; j < buttonNames.Length; j++)
             {
                 string query = "Player" + i.ToString() + "Button" + buttonNames[j];
                 //Deduct 1 from player since array starts at 0 but first player is Player1
@@ -67,8 +65,8 @@ public class Settings : MonoBehaviour {
         Debug.Log("Starting settings debugging");
         LoadSettings();
         Debug.Log("Loaded settings:");
-        Debug.Log(controls.ToString());
-        controls[0, 1] = "Test";
-        Debug.Log("New Settings: \n" + controls.ToString());
+        Debug.Log(controls[0,0]);
+        controls[0, 0] = "Test";
+        Debug.Log(controls[0,0]);
     }
 }
