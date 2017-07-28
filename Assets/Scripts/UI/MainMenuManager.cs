@@ -27,7 +27,7 @@ public class MainMenuManager : MonoBehaviour {
     //triggered by button
     public void ShowSettings()
     {
-        
+        SceneManager.LoadScene("MenuSettings");
     }
 
     //triggered by button
